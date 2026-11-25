@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#f6f2eb">
   <meta name="description" content="Wir heiraten am 9. Oktober 2027. Alle Informationen zu unserem Tag und die Rückmeldung findet ihr hier.">
   <title>Denise &amp; Paul – 09. Oktober 2027</title>
+  <div class="countdown" aria-label="Countdown zur Hochzeit">
+  <span class="countdown__zahl" id="countdown-tage"></span>
+  <span class="countdown__text" id="countdown-text">
+    Tage bis zu unserem Ja-Wort
+  </span>
+</div>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -101,5 +107,35 @@
     <p class="footer-date">09 · 10 · 2027</p>
     <p class="legal-placeholder">[IMPRESSUM / DATENSCHUTZHINWEISE – VOR VERÖFFENTLICHUNG ERGÄNZEN]</p>
   </footer>
+  <script>
+  function aktualisiereCountdown() {
+    const heute = new Date();
+
+    // Kalendertage statt Stunden zählen
+    const heuteTag = Date.UTC(
+      heute.getFullYear(), heute.getMonth(), heute.getDate()
+    );
+    const hochzeitTag = Date.UTC(2027, 9, 9); // Oktober = Monat 9
+    const tage = Math.ceil((hochzeitTag - heuteTag) / 86400000);
+
+    const zahl = document.getElementById("countdown-tage");
+    const text = document.getElementById("countdown-text");
+
+    if (tage > 0) {
+      zahl.textContent = tage;
+      text.textContent = tage === 1
+        ? "Tag bis zu unserem Ja-Wort"
+        : "Tage bis zu unserem Ja-Wort";
+    } else {
+      zahl.textContent = "";
+      text.textContent = tage === 0
+        ? "Heute ist unser großer Tag!"
+        : "Schön, dass ihr Teil unserer Geschichte seid.";
+    }
+  }
+
+  aktualisiereCountdown();
+  setInterval(aktualisiereCountdown, 60000);
+</script>
 </body>
 </html>
