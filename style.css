@@ -46,3 +46,26 @@
   color: #292821;
   text-align: center;
 }
+/* Goldener Button zur Rückmeldung */
+.rsvp-button {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--gold-dunkel, #967b50);
+  border-radius: 3px;
+  background: transparent;
+  color: #292821;
+  font: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.rsvp-button:hover,
+.rsvp-button:focus-visible {
+  background-color: var(--champagner, #ede4d7);
+}
+
+.rsvp-button:focus-visible {
+  outline: 2px solid var(--gold-dunkel, #967b50);
+  outline-offset: 3px;
+}
